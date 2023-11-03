@@ -1,4 +1,5 @@
 #pragma once
+using namespace::std;
 struct Vector3 {
     double cor[3] = { 0 };
     Vector3() {};
