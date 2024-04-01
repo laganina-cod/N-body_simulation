@@ -1,0 +1,1901 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler Classic for applications running on Intel(R) 64, Version 2021.5.0 Build 20211109_000000
+
+Compiler options: -I./mas_struct.h -I./class_Subbody.h -O2 -std=c++11 -qopenmp -xAVX -qopt-report=max -o opt1
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINING OPTION VALUES:
+  -inline-factor: 100
+  -inline-min-size: 30
+  -inline-max-size: 230
+  -inline-max-total-size: 2000
+  -inline-max-per-routine: 10000
+  -inline-max-per-compile: 500000
+
+
+Begin optimization report for: main(int, char **)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (main(int, char **)) [1] ./Source.cpp(12,34)
+  -> DELETED: (13,9) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE (MANUAL): (13,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/basic_string.h:(539,7) __cxa_call_unexpected
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (301,44) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+      -> INLINE (MANUAL): (240,34) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep()
+      -> INLINE (MANUAL): (245,12) __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(81,9) __gthread_active_p()
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(82,14) __gnu_cxx::__exchange_and_add(volatile _Atomic_word *, int)
+          -> EXTERN: (49,12) __atomic_fetch_add_4(volatile void *, unsigned int, int)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(84,14) __gnu_cxx::__exchange_and_add_single(_Atomic_word *, int)
+      -> EXTERN: (249,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,36) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1818,16) std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &)
+        -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(115,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)
+        -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(116,36) __cxa_call_unexpected
+  -> INLINE (MANUAL): (13,17) std::stod(const std::string &, std::size_t *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(2854,12) __gnu_cxx::__stoa<double, double, char>..0(double (*)(const char *, char **), const char *, const char *, std::size_t *)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(61,7) __errno_location()
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(62,27) strtod(const char *, char **)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(65,2) std::__throw_invalid_argument(const char *)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(66,16) __errno_location()
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(70,2) std::__throw_out_of_range(const char *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(2854,58) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1801,16) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+  -> INLINE (MANUAL): (13,27) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/basic_string.h:(539,7) __cxa_call_unexpected
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (301,44) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+      -> INLINE (MANUAL): (240,34) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep()
+      -> (245,12) __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)
+      -> EXTERN: (249,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,36) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1818,16) std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &)
+        -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(115,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)
+        -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(116,36) __cxa_call_unexpected
+  -> DELETED: (13,27) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> EXTERN: (13,27) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *, const char *, const std::allocator<char> &)
+  -> INLINE (MANUAL): (13,27) std::allocator<char>::allocator(std::allocator<char> *)
+    -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(113,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(113,27) __cxa_call_unexpected
+  -> DELETED: (14,6) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE (MANUAL): (14,6) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/basic_string.h:(539,7) __cxa_call_unexpected
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (301,44) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+      -> INLINE (MANUAL): (240,34) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep()
+      -> INLINE (MANUAL): (245,12) __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(81,9) __gthread_active_p()
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(82,14) __gnu_cxx::__exchange_and_add(volatile _Atomic_word *, int)
+          -> EXTERN: (49,12) __atomic_fetch_add_4(volatile void *, unsigned int, int)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(84,14) __gnu_cxx::__exchange_and_add_single(_Atomic_word *, int)
+      -> EXTERN: (249,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,36) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1818,16) std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &)
+        -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(115,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)
+        -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(116,36) __cxa_call_unexpected
+  -> INLINE (MANUAL): (14,10) std::stoi(const std::string &, std::size_t *, int)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(2824,12) __gnu_cxx::__stoa<long, int, char, int>..0(long (*)(const char *, char **, int), const char *, const char *, std::size_t *, int)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(61,7) __errno_location()
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(62,27) strtol(const char *, char **, int)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(65,2) std::__throw_invalid_argument(const char *)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(66,16) __errno_location()
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(70,2) std::__throw_out_of_range(const char *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(2824,69) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1801,16) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+  -> INLINE (MANUAL): (14,20) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/basic_string.h:(539,7) __cxa_call_unexpected
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (301,44) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+      -> INLINE (MANUAL): (240,34) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep()
+      -> (245,12) __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)
+      -> EXTERN: (249,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,36) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1818,16) std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &)
+        -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(115,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)
+        -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(116,36) __cxa_call_unexpected
+  -> DELETED: (14,20) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> EXTERN: (14,20) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *, const char *, const std::allocator<char> &)
+  -> INLINE (MANUAL): (14,20) std::allocator<char>::allocator(std::allocator<char> *)
+    -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(113,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(113,27) __cxa_call_unexpected
+  -> DELETED: (15,9) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE (MANUAL): (15,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/basic_string.h:(539,7) __cxa_call_unexpected
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (301,44) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+      -> INLINE (MANUAL): (240,34) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep()
+      -> INLINE (MANUAL): (245,12) __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(81,9) __gthread_active_p()
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(82,14) __gnu_cxx::__exchange_and_add(volatile _Atomic_word *, int)
+          -> EXTERN: (49,12) __atomic_fetch_add_4(volatile void *, unsigned int, int)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(84,14) __gnu_cxx::__exchange_and_add_single(_Atomic_word *, int)
+      -> EXTERN: (249,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,36) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1818,16) std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &)
+        -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(115,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)
+        -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(116,36) __cxa_call_unexpected
+  -> INLINE (MANUAL): (15,14) std::stod(const std::string &, std::size_t *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(2854,12) __gnu_cxx::__stoa<double, double, char>..0(double (*)(const char *, char **), const char *, const char *, std::size_t *)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(61,7) __errno_location()
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(62,27) strtod(const char *, char **)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(65,2) std::__throw_invalid_argument(const char *)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(66,16) __errno_location()
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(70,2) std::__throw_out_of_range(const char *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(2854,58) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1801,16) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+  -> INLINE (MANUAL): (15,24) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/basic_string.h:(539,7) __cxa_call_unexpected
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (301,44) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+      -> INLINE (MANUAL): (240,34) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep()
+      -> (245,12) __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)
+      -> EXTERN: (249,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,36) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1818,16) std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &)
+        -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(115,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)
+        -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(116,36) __cxa_call_unexpected
+  -> DELETED: (15,24) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> EXTERN: (15,24) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *, const char *, const std::allocator<char> &)
+  -> INLINE (MANUAL): (15,24) std::allocator<char>::allocator(std::allocator<char> *)
+    -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(113,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(113,27) __cxa_call_unexpected
+  -> DELETED: (16,6) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> INLINE (MANUAL): (16,6) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/basic_string.h:(539,7) __cxa_call_unexpected
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (301,44) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+      -> INLINE (MANUAL): (240,34) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep()
+      -> INLINE (MANUAL): (245,12) __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(81,9) __gthread_active_p()
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(82,14) __gnu_cxx::__exchange_and_add(volatile _Atomic_word *, int)
+          -> EXTERN: (49,12) __atomic_fetch_add_4(volatile void *, unsigned int, int)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ext/atomicity.h:(84,14) __gnu_cxx::__exchange_and_add_single(_Atomic_word *, int)
+      -> EXTERN: (249,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,36) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1818,16) std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &)
+        -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(115,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)
+        -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(116,36) __cxa_call_unexpected
+  -> INLINE (MANUAL): (16,13) std::stoi(const std::string &, std::size_t *, int)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(2824,12) __gnu_cxx::__stoa<long, int, char, int>..0(long (*)(const char *, char **, int), const char *, const char *, std::size_t *, int)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(61,7) __errno_location()
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(62,27) strtol(const char *, char **, int)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(65,2) std::__throw_invalid_argument(const char *)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(66,16) __errno_location()
+      -> EXTERN: /usr/include/c++/4.8.5/ext/string_conversions.h:(70,2) std::__throw_out_of_range(const char *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(2824,69) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1801,16) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+  -> INLINE (MANUAL): (16,23) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/basic_string.h:(539,7) __cxa_call_unexpected
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,9) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (301,44) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,19) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+      -> INLINE (MANUAL): (240,34) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep()
+      -> (245,12) __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)
+      -> EXTERN: (249,5) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_destroy(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_string.h:(539,36) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+      -> INLINE (MANUAL): (1818,16) std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &)
+        -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(115,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)
+        -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(116,36) __cxa_call_unexpected
+  -> DELETED: (16,23) std::allocator<char>::~allocator(std::allocator<char> *)
+  -> EXTERN: (16,23) std::basic_string<char, std::char_traits<char>, std::allocator<char>>::basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *, const char *, const std::allocator<char> &)
+  -> INLINE (MANUAL): (16,23) std::allocator<char>::allocator(std::allocator<char> *)
+    -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(113,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(113,27) __cxa_call_unexpected
+  -> EXTERN: (22,12) __cxa_end_catch
+  -> EXTERN: (22,12) __cxa_rethrow
+  -> EXTERN: (22,12) operator delete[](void *)
+  -> EXTERN: (22,12) __cxa_get_globals_fast
+  -> EXTERN: (22,12) __cxa_begin_catch
+  -> INLINE: (22,12) Subbody::Subbody(Subbody *)
+  -> EXTERN: (22,12) operator new[](std::size_t)
+  -> INLINE: (26,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE: (27,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE: (28,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE: (29,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE: (30,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE: (31,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE: (32,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE: (33,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE: (34,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> (35,3) simulation_mas_struct(Subbody *, size_t, double, double, double, double)
+  -> (36,13) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (36,21) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double)
+  -> (36,46) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (36,54) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (36,62) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double)
+  -> (36,87) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (36,95) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (36,103) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double)
+  -> (36,128) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (36,136) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> EXTERN: (38,3) operator delete[](void *)
+  -> EXTERN: (42,43) __cxa_end_catch
+  -> EXTERN: (42,43) __cxa_rethrow
+  -> EXTERN: (42,43) operator delete[](void *)
+  -> EXTERN: (42,43) __cxa_get_globals_fast
+  -> EXTERN: (42,43) __cxa_begin_catch
+  -> INLINE: (42,43) Subbody::Subbody(Subbody *)
+  -> EXTERN: (42,43) operator new[](std::size_t)
+  -> INLINE (MANUAL): (43,17) std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/fstream:(673,7) std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *, const long *const *)
+      -> INLINE (MANUAL): (674,9) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(276,7) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+          -> EXTERN: (276,20) __cxa_call_unexpected
+          -> EXTERN: (276,22) std::ios_base::~ios_base(std::ios_base *const)
+      -> INLINE (MANUAL): (674,9) std::basic_ostream<char, std::char_traits<char>>::~basic_ostream(std::basic_ostream<char, std::char_traits<char>> *, const long *const *)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ostream:(93,26) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(276,7) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+            -> EXTERN: (276,20) __cxa_call_unexpected
+            -> EXTERN: (276,22) std::ios_base::~ios_base(std::ios_base *const)
+      -> INLINE (MANUAL): (674,9) std::basic_filebuf<char, std::char_traits<char>>::~basic_filebuf(std::basic_filebuf<char, std::char_traits<char>> *)
+        -> EXTERN: (220,7) std::__basic_file<char>::~__basic_file(std::__basic_file<char> *)
+        -> INLINE (MANUAL): (220,7) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/streambuf:(197,7) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *)
+            -> EXTERN: (198,9) std::locale::~locale(std::locale *)
+        -> EXTERN: (220,7) __cxa_call_unexpected
+        -> EXTERN: (220,15) std::basic_filebuf<char, std::char_traits<char>>::close(std::basic_filebuf<char, std::char_traits<char>> *)
+        -> EXTERN: (220,24) std::__basic_file<char>::~__basic_file(std::__basic_file<char> *)
+        -> INLINE (MANUAL): (220,24) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/streambuf:(197,7) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *)
+            -> EXTERN: (198,9) std::locale::~locale(std::locale *)
+  -> INLINE (MANUAL): (43,17) std::basic_ofstream<char, std::char_traits<char>>::basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/fstream:(625,7) std::basic_ofstream<char, std::char_traits<char>>::basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *, const long *const *)
+      -> INLINE (MANUAL): (625,7) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(276,7) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+          -> EXTERN: (276,20) __cxa_call_unexpected
+          -> EXTERN: (276,22) std::ios_base::~ios_base(std::ios_base *const)
+      -> INLINE (MANUAL): (625,7) std::basic_filebuf<char, std::char_traits<char>>::~basic_filebuf(std::basic_filebuf<char, std::char_traits<char>> *)
+        -> EXTERN: (220,7) std::__basic_file<char>::~__basic_file(std::__basic_file<char> *)
+        -> INLINE (MANUAL): (220,7) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/streambuf:(197,7) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *)
+            -> EXTERN: (198,9) std::locale::~locale(std::locale *)
+        -> EXTERN: (220,7) __cxa_call_unexpected
+        -> EXTERN: (220,15) std::basic_filebuf<char, std::char_traits<char>>::close(std::basic_filebuf<char, std::char_traits<char>> *)
+        -> EXTERN: (220,24) std::__basic_file<char>::~__basic_file(std::__basic_file<char> *)
+        -> INLINE (MANUAL): (220,24) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/streambuf:(197,7) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *)
+            -> EXTERN: (198,9) std::locale::~locale(std::locale *)
+      -> INLINE (MANUAL): (625,7) std::basic_ostream<char, std::char_traits<char>>::~basic_ostream(std::basic_ostream<char, std::char_traits<char>> *, const long *const *)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ostream:(93,26) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(276,7) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+            -> EXTERN: (276,20) __cxa_call_unexpected
+            -> EXTERN: (276,22) std::ios_base::~ios_base(std::ios_base *const)
+      -> EXTERN: (625,7) std::basic_filebuf<char, std::char_traits<char>>::basic_filebuf(std::basic_filebuf<char, std::char_traits<char>> *)
+      -> INLINE (MANUAL): (625,7) std::basic_ostream<char, std::char_traits<char>>::basic_ostream(std::basic_ostream<char, std::char_traits<char>> *, const long *const *)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ostream:(384,7) std::basic_ios<char, std::char_traits<char>>::basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(454,7) std::basic_ios<char, std::char_traits<char>>::basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+            -> EXTERN: (454,7) std::ios_base::ios_base(std::ios_base *const)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ostream:(384,7) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(276,7) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+            -> EXTERN: (276,20) __cxa_call_unexpected
+            -> EXTERN: (276,22) std::ios_base::~ios_base(std::ios_base *const)
+        -> EXTERN: /usr/include/c++/4.8.5/ostream:(385,15) std::basic_ios<char, std::char_traits<char>>::init(std::basic_ios<char, std::char_traits<char>> *, std::basic_streambuf<char, std::char_traits<char>> *)
+      -> INLINE (MANUAL): (625,7) std::basic_ios<char, std::char_traits<char>>::basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(454,7) std::basic_ios<char, std::char_traits<char>>::basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+          -> EXTERN: (454,7) std::ios_base::ios_base(std::ios_base *const)
+      -> EXTERN: (626,15) std::basic_ios<char, std::char_traits<char>>::init(std::basic_ios<char, std::char_traits<char>> *, std::basic_streambuf<char, std::char_traits<char>> *)
+  -> INLINE (MANUAL): (44,9) std::basic_ofstream<char, std::char_traits<char>>::open(std::basic_ofstream<char, std::char_traits<char>> *, const char *, std::ios_base::openmode)
+    -> EXTERN: /usr/include/c++/4.8.5/fstream:(716,18) std::basic_filebuf<char, std::char_traits<char>>::open(std::basic_filebuf<char, std::char_traits<char>> *, const char *, std::ios_base::openmode)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/fstream:(716,35) std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/fstream:(717,10) std::basic_ios<char, std::char_traits<char>>::setstate(std::basic_ios<char, std::char_traits<char>> *, std::ios_base::iostate)
+      -> EXTERN: /usr/include/c++/4.8.5/bits/basic_ios.h:(152,15) std::basic_ios<char, std::char_traits<char>>::clear(std::basic_ios<char, std::char_traits<char>> *, std::ios_base::iostate)
+      -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(152,27) std::basic_ios<char, std::char_traits<char>>::rdstate(const std::basic_ios<char, std::char_traits<char>> *) const
+      -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(152,37) std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)
+    -> EXTERN: /usr/include/c++/4.8.5/fstream:(721,10) std::basic_ios<char, std::char_traits<char>>::clear(std::basic_ios<char, std::char_traits<char>> *, std::ios_base::iostate)
+  -> EXTERN: (47,42) rand()
+  -> EXTERN: (47,58) rand()
+  -> EXTERN: (47,74) rand()
+  -> EXTERN: (47,90) rand()
+  -> EXTERN: (47,106) rand()
+  -> EXTERN: (47,122) rand()
+  -> EXTERN: (47,138) rand()
+  -> INLINE: (47,138) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> EXTERN: (49,15) omp_get_wtime()
+  -> (50,3) simulation_mas_struct(Subbody *, size_t, double, double, double, double)
+  -> EXTERN: (51,15) omp_get_wtime()
+  -> EXTERN: (53,9) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, int)
+  -> (53,14) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (53,21) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double)
+  -> (53,27) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (53,34) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+  -> EXTERN: (54,3) operator delete[](void *)
+  -> INLINE (MANUAL): (57,2) std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/fstream:(673,7) std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *, const long *const *)
+      -> INLINE (MANUAL): (674,9) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(276,7) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+          -> EXTERN: (276,20) __cxa_call_unexpected
+          -> EXTERN: (276,22) std::ios_base::~ios_base(std::ios_base *const)
+      -> INLINE (MANUAL): (674,9) std::basic_ostream<char, std::char_traits<char>>::~basic_ostream(std::basic_ostream<char, std::char_traits<char>> *, const long *const *)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/ostream:(93,26) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/basic_ios.h:(276,7) std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+            -> EXTERN: (276,20) __cxa_call_unexpected
+            -> EXTERN: (276,22) std::ios_base::~ios_base(std::ios_base *const)
+      -> INLINE (MANUAL): (674,9) std::basic_filebuf<char, std::char_traits<char>>::~basic_filebuf(std::basic_filebuf<char, std::char_traits<char>> *)
+        -> EXTERN: (220,7) std::__basic_file<char>::~__basic_file(std::__basic_file<char> *)
+        -> INLINE (MANUAL): (220,7) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/streambuf:(197,7) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *)
+            -> EXTERN: (198,9) std::locale::~locale(std::locale *)
+        -> EXTERN: (220,7) __cxa_call_unexpected
+        -> EXTERN: (220,15) std::basic_filebuf<char, std::char_traits<char>>::close(std::basic_filebuf<char, std::char_traits<char>> *)
+        -> EXTERN: (220,24) std::__basic_file<char>::~__basic_file(std::__basic_file<char> *)
+        -> INLINE (MANUAL): (220,24) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *const)
+          -> INLINE (MANUAL): /usr/include/c++/4.8.5/streambuf:(197,7) std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *)
+            -> EXTERN: (198,9) std::locale::~locale(std::locale *)
+  -> (59,13) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+  -> (59,24) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at ./Source.cpp(22,12)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
+   remark #25436: completely unrolled by 9  
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(22,12)
+      remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 4 
+      remark #15477: vector cost: 3.000 
+      remark #15478: estimated potential speedup: 1.140 
+      remark #15488: --- end vector cost summary ---
+      remark #25436: completely unrolled by 6  
+   LOOP END
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(22,12)
+   LOOP END
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(22,12)
+   LOOP END
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(22,12)
+   LOOP END
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(22,12)
+   LOOP END
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(22,12)
+   LOOP END
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(22,12)
+   LOOP END
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(22,12)
+   LOOP END
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(22,12)
+   LOOP END
+LOOP END
+
+LOOP BEGIN at ./Source.cpp(42,43)
+   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
+   remark #25452: Original Order found to be proper, but by a close margin
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(42,43)
+      remark #15301: MATERIALIZED LOOP WAS VECTORIZED
+      remark #15451: unmasked unaligned unit stride stores: 1 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 4 
+      remark #15477: vector cost: 3.000 
+      remark #15478: estimated potential speedup: 1.140 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+LOOP END
+
+LOOP BEGIN at ./Source.cpp(46,3)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+   remark #15346: vector dependence: assumed OUTPUT dependence between call:rand() (47:42) and call:rand() (47:138)
+LOOP END
+
+LOOP BEGIN at ./Source.cpp(58,2)
+   remark #15344: loop was not vectorized: vector dependence prevents vectorization. First dependence is shown below. Use level 5 report for details
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+./Source.cpp(12,34):remark #34051: REGISTER ALLOCATION : [main] ./Source.cpp:12
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   21[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm6]
+        
+    Routine temporaries
+        Total         :     531
+            Global    :     127
+            Local     :     404
+        Regenerable   :     203
+        Spilled       :      17
+        
+    Routine stack
+        Variables     :     589 bytes*
+            Reads     :      40 [2.63e+00 ~ 2.6%]
+            Writes    :      55 [2.15e+00 ~ 2.1%]
+        Spills        :      96 bytes*
+            Reads     :      15 [5.66e+00 ~ 5.7%]
+            Writes    :      12 [4.77e+00 ~ 4.8%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &)))/usr/include/c++/4.8.5/ostream(109,7)
+
+===========================================================================
+
+Begin optimization report for: std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *))/usr/include/c++/4.8.5/ostream(531,5)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::setstate(std::basic_ios<char, std::char_traits<char>> *, std::ios_base::iostate)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ios<char, std::char_traits<char>>::setstate(std::basic_ios<char, std::char_traits<char>> *, std::ios_base::iostate))/usr/include/c++/4.8.5/bits/basic_ios.h(152,7)
+
+===========================================================================
+
+Begin optimization report for: std::char_traits<char>::length(const std::char_traits<char>::char_type *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (std::char_traits<char>::length(const std::char_traits<char>::char_type *)) [5] /usr/include/c++/4.8.5/bits/char_traits.h(259,7)
+  -> EXTERN: (259,16) __builtin_strlen(const char *)
+
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.8.5/bits/char_traits.h(259,7):remark #34051: REGISTER ALLOCATION : [_ZNSt11char_traitsIcE6lengthEPKc] /usr/include/c++/4.8.5/bits/char_traits.h:259
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    3[ rax rdx rdi]
+        
+    Routine temporaries
+        Total         :      12
+            Global    :       7
+            Local     :       5
+        Regenerable   :       0
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double))/usr/include/c++/4.8.5/ostream(221,7)
+
+===========================================================================
+
+Begin optimization report for: simulation_mas_struct(Subbody *, size_t, double, double, double, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (simulation_mas_struct(Subbody *, size_t, double, double, double, double)) [7] ./mas_struct.h(6,103)
+  -> DELETED: (8,25) std::allocator<double>::~allocator(std::allocator<double> *)
+  -> (8,28) std::vector<double, std::allocator<double>>::~vector(std::vector<double, std::allocator<double>> *)
+  -> DELETED: (8,28) std::allocator<double>::~allocator(std::allocator<double> *)
+  -> INLINE (MANUAL): (8,28) std::vector<double, std::allocator<double>>::vector(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type, const std::vector<double, std::allocator<double>>::allocator_type &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(269,7) std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *const, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)
+      -> INLINE (MANUAL): (134,7) std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)
+        -> INLINE (MANUAL): (134,7) std::_Vector_base<double, std::allocator<double>>::_Vector_impl::_Vector_impl(std::_Vector_base<double, std::allocator<double>>::_Vector_impl *, const std::_Vector_base<double, std::allocator<double>>::_Tp_alloc_type &)
+          -> INLINE (MANUAL): (90,2) std::allocator<double>::allocator(std::allocator<double> *const, const std::allocator<double> &)
+            -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/allocator.h:(115,7) std::allocator<double>::allocator(std::allocator<double> *, const std::allocator<double> &)
+              -> DELETED: (115,7) __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const, const __gnu_cxx::new_allocator<double> &)
+              -> EXTERN: (116,36) __cxa_call_unexpected
+        -> INLINE (MANUAL): (136,9) std::_Vector_base<double, std::allocator<double>>::_M_create_storage(std::_Vector_base<double, std::allocator<double>> *, std::size_t)
+          -> INLINE (MANUAL): (181,33) std::_Vector_base<double, std::allocator<double>>::_M_allocate(std::_Vector_base<double, std::allocator<double>> *, std::size_t)
+            -> INLINE (MANUAL): (168,35) __gnu_cxx::new_allocator<double>::allocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::size_type, const void *)
+              -> DELETED: /usr/include/c++/4.8.5/ext/new_allocator.h:(101,18) __gnu_cxx::new_allocator<double>::max_size(const __gnu_cxx::new_allocator<double> *) const
+              -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(102,4) std::__throw_bad_alloc()
+              -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(104,27) operator new(std::size_t)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(269,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+      -> (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(271,9) std::vector<double, std::allocator<double>>::_M_default_initialize(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+      -> INLINE (MANUAL): (1224,2) std::__uninitialized_default_n_a<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::allocator<double> &)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_uninitialized.h:(605,7) std::__uninitialized_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)
+          -> INLINE (MANUAL): (543,7) std::__uninitialized_default_n_1<true>::__uninit_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)
+            -> INLINE (MANUAL): (515,4) std::fill_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)
+              -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_algobase.h:(786,18) std::__fill_n_a<std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)
+              -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_algobase.h:(786,34) std::__niter_base<std::_Vector_base<double, std::allocator<double>>::pointer>(std::_Vector_base<double, std::allocator<double>>::pointer)
+                -> INLINE (MANUAL): (278,14) std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::_S_base(std::_Vector_base<double, std::allocator<double>>::pointer)
+      -> INLINE (MANUAL): (1225,7) std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator(std::_Vector_base<double, std::allocator<double>> *)
+  -> INLINE (MANUAL): (8,28) std::allocator<double>::allocator(std::allocator<double> *)
+    -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(113,7) __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(113,27) __cxa_call_unexpected
+  -> DELETED: (9,25) std::allocator<double>::~allocator(std::allocator<double> *)
+  -> (9,28) std::vector<double, std::allocator<double>>::~vector(std::vector<double, std::allocator<double>> *)
+  -> DELETED: (9,28) std::allocator<double>::~allocator(std::allocator<double> *)
+  -> INLINE (MANUAL): (9,28) std::vector<double, std::allocator<double>>::vector(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type, const std::vector<double, std::allocator<double>>::allocator_type &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(269,7) std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *const, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)
+      -> INLINE (MANUAL): (134,7) std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)
+        -> INLINE (MANUAL): (134,7) std::_Vector_base<double, std::allocator<double>>::_Vector_impl::_Vector_impl(std::_Vector_base<double, std::allocator<double>>::_Vector_impl *, const std::_Vector_base<double, std::allocator<double>>::_Tp_alloc_type &)
+          -> INLINE (MANUAL): (90,2) std::allocator<double>::allocator(std::allocator<double> *const, const std::allocator<double> &)
+            -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/allocator.h:(115,7) std::allocator<double>::allocator(std::allocator<double> *, const std::allocator<double> &)
+              -> DELETED: (115,7) __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const, const __gnu_cxx::new_allocator<double> &)
+              -> EXTERN: (116,36) __cxa_call_unexpected
+        -> INLINE (MANUAL): (136,9) std::_Vector_base<double, std::allocator<double>>::_M_create_storage(std::_Vector_base<double, std::allocator<double>> *, std::size_t)
+          -> INLINE (MANUAL): (181,33) std::_Vector_base<double, std::allocator<double>>::_M_allocate(std::_Vector_base<double, std::allocator<double>> *, std::size_t)
+            -> INLINE (MANUAL): (168,35) __gnu_cxx::new_allocator<double>::allocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::size_type, const void *)
+              -> DELETED: /usr/include/c++/4.8.5/ext/new_allocator.h:(101,18) __gnu_cxx::new_allocator<double>::max_size(const __gnu_cxx::new_allocator<double> *) const
+              -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(102,4) std::__throw_bad_alloc()
+              -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(104,27) operator new(std::size_t)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(269,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+      -> (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(271,9) std::vector<double, std::allocator<double>>::_M_default_initialize(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+      -> INLINE (MANUAL): (1224,2) std::__uninitialized_default_n_a<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::allocator<double> &)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_uninitialized.h:(605,7) std::__uninitialized_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)
+          -> INLINE (MANUAL): (543,7) std::__uninitialized_default_n_1<true>::__uninit_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)
+            -> INLINE (MANUAL): (515,4) std::fill_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)
+              -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_algobase.h:(786,18) std::__fill_n_a<std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)
+              -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_algobase.h:(786,34) std::__niter_base<std::_Vector_base<double, std::allocator<double>>::pointer>(std::_Vector_base<double, std::allocator<double>>::pointer)
+                -> INLINE (MANUAL): (278,14) std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::_S_base(std::_Vector_base<double, std::allocator<double>>::pointer)
+      -> INLINE (MANUAL): (1225,7) std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator(std::_Vector_base<double, std::allocator<double>> *)
+  -> INLINE (MANUAL): (9,28) std::allocator<double>::allocator(std::allocator<double> *)
+    -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(113,7) __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(113,27) __cxa_call_unexpected
+  -> DELETED: (10,25) std::allocator<double>::~allocator(std::allocator<double> *)
+  -> INLINE (MANUAL): (10,28) std::allocator<double>::allocator(std::allocator<double> *)
+    -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(113,7) __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(113,27) __cxa_call_unexpected
+  -> INLINE (MANUAL): (10,28) std::vector<double, std::allocator<double>>::vector(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type, const std::vector<double, std::allocator<double>>::allocator_type &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(269,7) std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *const, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)
+      -> INLINE (MANUAL): (134,7) std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)
+        -> INLINE (MANUAL): (134,7) std::_Vector_base<double, std::allocator<double>>::_Vector_impl::_Vector_impl(std::_Vector_base<double, std::allocator<double>>::_Vector_impl *, const std::_Vector_base<double, std::allocator<double>>::_Tp_alloc_type &)
+          -> INLINE (MANUAL): (90,2) std::allocator<double>::allocator(std::allocator<double> *const, const std::allocator<double> &)
+            -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/allocator.h:(115,7) std::allocator<double>::allocator(std::allocator<double> *, const std::allocator<double> &)
+              -> DELETED: (115,7) __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const, const __gnu_cxx::new_allocator<double> &)
+              -> EXTERN: (116,36) __cxa_call_unexpected
+        -> INLINE (MANUAL): (136,9) std::_Vector_base<double, std::allocator<double>>::_M_create_storage(std::_Vector_base<double, std::allocator<double>> *, std::size_t)
+          -> INLINE (MANUAL): (181,33) std::_Vector_base<double, std::allocator<double>>::_M_allocate(std::_Vector_base<double, std::allocator<double>> *, std::size_t)
+            -> INLINE (MANUAL): (168,35) __gnu_cxx::new_allocator<double>::allocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::size_type, const void *)
+              -> DELETED: /usr/include/c++/4.8.5/ext/new_allocator.h:(101,18) __gnu_cxx::new_allocator<double>::max_size(const __gnu_cxx::new_allocator<double> *) const
+              -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(102,4) std::__throw_bad_alloc()
+              -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(104,27) operator new(std::size_t)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(269,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+      -> (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(271,9) std::vector<double, std::allocator<double>>::_M_default_initialize(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+      -> INLINE (MANUAL): (1224,2) std::__uninitialized_default_n_a<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::allocator<double> &)
+        -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_uninitialized.h:(605,7) std::__uninitialized_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)
+          -> INLINE (MANUAL): (543,7) std::__uninitialized_default_n_1<true>::__uninit_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)
+            -> INLINE (MANUAL): (515,4) std::fill_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)
+              -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_algobase.h:(786,18) std::__fill_n_a<std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)
+              -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_algobase.h:(786,34) std::__niter_base<std::_Vector_base<double, std::allocator<double>>::pointer>(std::_Vector_base<double, std::allocator<double>>::pointer)
+                -> INLINE (MANUAL): (278,14) std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::_S_base(std::_Vector_base<double, std::allocator<double>>::pointer)
+      -> INLINE (MANUAL): (1225,7) std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator(std::_Vector_base<double, std::allocator<double>> *)
+  -> DELETED: (10,28) std::allocator<double>::~allocator(std::allocator<double> *)
+  -> INLINE (MANUAL): (11,5) std::vector<double, std::allocator<double>>::~vector(std::vector<double, std::allocator<double>> *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(415,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+      -> (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/stl_vector.h:(415,7) __cxa_call_unexpected
+    -> DELETED: /usr/include/c++/4.8.5/bits/stl_vector.h:(415,9) std::_Destroy<std::_Vector_base<double, std::allocator<double>>::pointer, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer, std::allocator<double> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(416,9) std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator(std::_Vector_base<double, std::allocator<double>> *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(416,33) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+      -> INLINE (MANUAL): (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+        -> EXTERN: (160,7) __cxa_call_unexpected
+        -> INLINE (MANUAL): (160,9) std::_Vector_base<double, std::allocator<double>>::_M_deallocate(std::_Vector_base<double, std::allocator<double>> *, std::_Vector_base<double, std::allocator<double>>::pointer, std::size_t)
+          -> INLINE (MANUAL): (174,12) __gnu_cxx::new_allocator<double>::deallocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::pointer, __gnu_cxx::new_allocator<double>::size_type)
+            -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(110,9) operator delete(void *)
+  -> INLINE (MANUAL): (11,5) std::vector<double, std::allocator<double>>::~vector(std::vector<double, std::allocator<double>> *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(415,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+      -> (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/stl_vector.h:(415,7) __cxa_call_unexpected
+    -> DELETED: /usr/include/c++/4.8.5/bits/stl_vector.h:(415,9) std::_Destroy<std::_Vector_base<double, std::allocator<double>>::pointer, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer, std::allocator<double> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(416,9) std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator(std::_Vector_base<double, std::allocator<double>> *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(416,33) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+      -> INLINE (MANUAL): (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+        -> EXTERN: (160,7) __cxa_call_unexpected
+        -> INLINE (MANUAL): (160,9) std::_Vector_base<double, std::allocator<double>>::_M_deallocate(std::_Vector_base<double, std::allocator<double>> *, std::_Vector_base<double, std::allocator<double>>::pointer, std::size_t)
+          -> INLINE (MANUAL): (174,12) __gnu_cxx::new_allocator<double>::deallocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::pointer, __gnu_cxx::new_allocator<double>::size_type)
+            -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(110,9) operator delete(void *)
+  -> INLINE (MANUAL): (11,5) std::vector<double, std::allocator<double>>::~vector(std::vector<double, std::allocator<double>> *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(415,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+      -> (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+    -> EXTERN: /usr/include/c++/4.8.5/bits/stl_vector.h:(415,7) __cxa_call_unexpected
+    -> DELETED: /usr/include/c++/4.8.5/bits/stl_vector.h:(415,9) std::_Destroy<std::_Vector_base<double, std::allocator<double>>::pointer, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer, std::allocator<double> &)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(416,9) std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator(std::_Vector_base<double, std::allocator<double>> *)
+    -> INLINE (MANUAL): /usr/include/c++/4.8.5/bits/stl_vector.h:(416,33) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+      -> INLINE (MANUAL): (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+        -> EXTERN: (160,7) __cxa_call_unexpected
+        -> INLINE (MANUAL): (160,9) std::_Vector_base<double, std::allocator<double>>::_M_deallocate(std::_Vector_base<double, std::allocator<double>> *, std::_Vector_base<double, std::allocator<double>>::pointer, std::size_t)
+          -> INLINE (MANUAL): (174,12) __gnu_cxx::new_allocator<double>::deallocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::pointer, __gnu_cxx::new_allocator<double>::size_type)
+            -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(110,9) operator delete(void *)
+  -> INLINE (MANUAL): (13,3) std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+  -> INLINE (MANUAL): (14,3) std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+  -> INLINE (MANUAL): (15,3) std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+  -> INLINE (MANUAL): (29,23) std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+  -> INLINE (MANUAL): (30,23) std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+  -> INLINE (MANUAL): (31,23) std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+  -> INLINE (MANUAL): (46,28) std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+  -> INLINE (MANUAL): (47,28) std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+  -> INLINE (MANUAL): (48,28) std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(9,28)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(9,28)
+   <Peeled loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(9,28)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 3 
+      remark #15477: vector cost: 0.750 
+      remark #15478: estimated potential speedup: 1.280 
+      remark #15488: --- end vector cost summary ---
+      remark #25015: Estimate of max trip count of loop=1
+   LOOP END
+
+   LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(9,28)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(10,28)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(10,28)
+   <Peeled loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(10,28)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 3 
+      remark #15477: vector cost: 0.750 
+      remark #15478: estimated potential speedup: 1.280 
+      remark #15488: --- end vector cost summary ---
+      remark #25015: Estimate of max trip count of loop=1
+   LOOP END
+
+   LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(10,28)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(11,28)
+   remark #25408: memset generated
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(11,28)
+   <Peeled loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(11,28)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 3 
+      remark #15477: vector cost: 0.750 
+      remark #15478: estimated potential speedup: 1.280 
+      remark #15488: --- end vector cost summary ---
+      remark #25015: Estimate of max trip count of loop=1
+   LOOP END
+
+   LOOP BEGIN at /usr/include/c++/4.8.5/bits/stl_algobase.h(749,7) inlined into ./mas_struct.h(11,28)
+   <Remainder loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=12
+   LOOP END
+LOOP END
+
+LOOP BEGIN at ./mas_struct.h(11,5)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at ./mas_struct.h(12,1)
+   <Peeled loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at ./mas_struct.h(12,1)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15449: unmasked aligned unit stride stores: 1 
+      remark #15451: unmasked unaligned unit stride stores: 2 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 12 
+      remark #15477: vector cost: 6.250 
+      remark #15478: estimated potential speedup: 1.830 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at ./mas_struct.h(12,1)
+   <Remainder loop for vectorization>
+      remark #15301: REMAINDER LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15452: unmasked strided loads: 12 
+      remark #15453: unmasked strided stores: 6 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 141 
+      remark #15477: vector cost: 81.750 
+      remark #15478: estimated potential speedup: 1.700 
+      remark #15486: divides: 3 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at ./mas_struct.h(12,1)
+   <Remainder loop for vectorization>
+   LOOP END
+
+   LOOP BEGIN at ./mas_struct.h(17,9)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at ./mas_struct.h(20,13)
+      <Peeled loop for vectorization, Predicate Optimized v1>
+         remark #25015: Estimate of max trip count of loop=3
+      LOOP END
+
+      LOOP BEGIN at ./mas_struct.h(20,13)
+      <Predicate Optimized v1>
+         remark #25423: Condition at line 21 hoisted out of this loop
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15450: unmasked unaligned unit stride loads: 2 
+         remark #15451: unmasked unaligned unit stride stores: 2 
+         remark #15452: unmasked strided loads: 4 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 221 
+         remark #15477: vector cost: 68.000 
+         remark #15478: estimated potential speedup: 3.140 
+         remark #15486: divides: 4 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at ./mas_struct.h(20,13)
+      <Remainder loop for vectorization, Predicate Optimized v1>
+      LOOP END
+
+      LOOP BEGIN at ./mas_struct.h(20,13)
+      <Peeled loop for vectorization, Predicate Optimized v2>
+         remark #25015: Estimate of max trip count of loop=3
+      LOOP END
+
+      LOOP BEGIN at ./mas_struct.h(20,13)
+      <Predicate Optimized v2>
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15442: entire loop may be executed in remainder
+         remark #15448: unmasked aligned unit stride loads: 1 
+         remark #15449: unmasked aligned unit stride stores: 1 
+         remark #15450: unmasked unaligned unit stride loads: 2 
+         remark #15451: unmasked unaligned unit stride stores: 2 
+         remark #15452: unmasked strided loads: 4 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 221 
+         remark #15477: vector cost: 68.000 
+         remark #15478: estimated potential speedup: 3.140 
+         remark #15486: divides: 4 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at ./mas_struct.h(20,13)
+      <Remainder loop for vectorization, Predicate Optimized v2>
+      LOOP END
+   LOOP END
+
+   LOOP BEGIN at ./mas_struct.h(41,9)
+   <Peeled loop for vectorization>
+      remark #25015: Estimate of max trip count of loop=3
+   LOOP END
+
+   LOOP BEGIN at ./mas_struct.h(41,9)
+      remark #15300: LOOP WAS VECTORIZED
+      remark #15442: entire loop may be executed in remainder
+      remark #15448: unmasked aligned unit stride loads: 1 
+      remark #15450: unmasked unaligned unit stride loads: 2 
+      remark #15452: unmasked strided loads: 12 
+      remark #15453: unmasked strided stores: 6 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 141 
+      remark #15477: vector cost: 81.750 
+      remark #15478: estimated potential speedup: 1.700 
+      remark #15486: divides: 3 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at ./mas_struct.h(41,9)
+   <Remainder loop for vectorization>
+   LOOP END
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+./mas_struct.h(22,33):remark #34064: adjacent sparse (strided) loads partitioned for speed. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256, I64-V256, I64-V256, I64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x000000047 }.
+./mas_struct.h(22,33):remark #34030: adjacent sparse (strided) loads optimized for speed. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x000000007 }.
+./mas_struct.h(22,33):remark #34069: adjacent sparse (strided) loads seem unprofitable to optimize. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256, I64-V256, I64-V256, I64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x000000040 }.
+./mas_struct.h(22,33):remark #34064: adjacent sparse (strided) loads partitioned for speed. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256, I64-V256, I64-V256, I64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x000000047 }.
+./mas_struct.h(22,33):remark #34030: adjacent sparse (strided) loads optimized for speed. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x000000007 }.
+./mas_struct.h(22,33):remark #34069: adjacent sparse (strided) loads seem unprofitable to optimize. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256, I64-V256, I64-V256, I64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x000000040 }.
+./mas_struct.h(42,13):remark #34064: adjacent sparse (strided) loads partitioned for speed. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256, F64-V256, F64-V256, F64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x00000007F }.
+./mas_struct.h(42,13):remark #34030: adjacent sparse (strided) loads optimized for speed. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x00000000F }.
+./mas_struct.h(42,13):remark #34030: adjacent sparse (strided) loads optimized for speed. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x000000007 }.
+./mas_struct.h(48,13):remark #34034: adjacent sparse (strided) stores optimized for speed. Details: stride { 56 }, types { F64-V256, F64-V256, F64-V256, F64-V256, F64-V256, F64-V256 }, number of elements { 4 }, select mask { 0x00000003F }.
+/usr/include/c++/4.8.5/bits/stl_algobase.h(749,7):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+/usr/include/c++/4.8.5/bits/stl_algobase.h(749,7):remark #34026: call to memset implemented as a call to optimized library version
+/usr/include/c++/4.8.5/bits/stl_algobase.h(749,7):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+/usr/include/c++/4.8.5/bits/stl_algobase.h(749,7):remark #34026: call to memset implemented as a call to optimized library version
+/usr/include/c++/4.8.5/bits/stl_algobase.h(749,7):remark #34014: optimization advice for memset: increase the destination's alignment to 16 (and use __assume_aligned) to speed up library implementation
+/usr/include/c++/4.8.5/bits/stl_algobase.h(749,7):remark #34026: call to memset implemented as a call to optimized library version
+./mas_struct.h(6,103):remark #34051: REGISTER ALLOCATION : [_Z21simulation_mas_structP7Subbodymdddd] ./mas_struct.h:6
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
+        
+    Routine temporaries
+        Total         :     577
+            Global    :     135
+            Local     :     442
+        Regenerable   :      22
+        Spilled       :      17
+        
+    Routine stack
+        Variables     :      56 bytes*
+            Reads     :       9 [1.79e-02 ~ 0.0%]
+            Writes    :      28 [3.35e-02 ~ 0.0%]
+        Spills        :      96 bytes*
+            Reads     :      54 [1.56e+00 ~ 1.6%]
+            Writes    :      14 [1.98e-01 ~ 0.2%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)) [8] /usr/include/c++/4.8.5/bits/stl_vector.h(160,7)
+  -> EXTERN: (160,7) __cxa_call_unexpected
+  -> INLINE (MANUAL): (160,9) std::_Vector_base<double, std::allocator<double>>::_M_deallocate(std::_Vector_base<double, std::allocator<double>> *, std::_Vector_base<double, std::allocator<double>>::pointer, std::size_t)
+    -> INLINE (MANUAL): (174,12) __gnu_cxx::new_allocator<double>::deallocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::pointer, __gnu_cxx::new_allocator<double>::size_type)
+      -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(110,9) operator delete(void *)
+
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.8.5/bits/stl_vector.h(160,7):remark #34051: REGISTER ALLOCATION : [_ZNSt12_Vector_baseIdSaIdEED1Ev] /usr/include/c++/4.8.5/bits/stl_vector.h:160
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    1[ rdi]
+        
+    Routine temporaries
+        Total         :      10
+            Global    :       7
+            Local     :       3
+        Regenerable   :       0
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: std::_Destroy<std::_Vector_base<double, std::allocator<double>>::pointer, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer, std::allocator<double> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Destroy<std::_Vector_base<double, std::allocator<double>>::pointer, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer, std::allocator<double> &)) /usr/include/c++/4.8.5/bits/stl_construct.h(150,5)
+
+===========================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::~vector(std::vector<double, std::allocator<double>> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (std::vector<double, std::allocator<double>>::~vector(std::vector<double, std::allocator<double>> *)) [10] /usr/include/c++/4.8.5/bits/stl_vector.h(415,7)
+  -> EXTERN: (415,7) __cxa_call_unexpected
+  -> INLINE (MANUAL): (415,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+    -> (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+  -> DELETED: (415,9) std::_Destroy<std::_Vector_base<double, std::allocator<double>>::pointer, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer, std::allocator<double> &)
+  -> INLINE (MANUAL): (416,9) std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator(std::_Vector_base<double, std::allocator<double>> *)
+  -> INLINE (MANUAL): (416,33) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+    -> INLINE (MANUAL): (159,7) std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *)
+      -> EXTERN: (160,7) __cxa_call_unexpected
+      -> INLINE (MANUAL): (160,9) std::_Vector_base<double, std::allocator<double>>::_M_deallocate(std::_Vector_base<double, std::allocator<double>> *, std::_Vector_base<double, std::allocator<double>>::pointer, std::size_t)
+        -> INLINE (MANUAL): (174,12) __gnu_cxx::new_allocator<double>::deallocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::pointer, __gnu_cxx::new_allocator<double>::size_type)
+          -> EXTERN: /usr/include/c++/4.8.5/ext/new_allocator.h:(110,9) operator delete(void *)
+
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.8.5/bits/stl_vector.h(415,7):remark #34051: REGISTER ALLOCATION : [_ZNSt6vectorIdSaIdEED1Ev] /usr/include/c++/4.8.5/bits/stl_vector.h:415
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    1[ rdi]
+        
+    Routine temporaries
+        Total         :      10
+            Global    :       7
+            Local     :       3
+        Regenerable   :       0
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const, const __gnu_cxx::new_allocator<double> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const, const __gnu_cxx::new_allocator<double> &)) /usr/include/c++/4.8.5/ext/new_allocator.h(81,7)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<double>::max_size(const __gnu_cxx::new_allocator<double> *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<double>::max_size(const __gnu_cxx::new_allocator<double> *) const) /usr/include/c++/4.8.5/ext/new_allocator.h(114,7)
+
+===========================================================================
+
+Begin optimization report for: std::allocator<double>::~allocator(std::allocator<double> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::allocator<double>::~allocator(std::allocator<double> *)) /usr/include/c++/4.8.5/bits/allocator.h(121,28)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *const)) /usr/include/c++/4.8.5/ext/new_allocator.h(79,7)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const, const __gnu_cxx::new_allocator<char> &)) /usr/include/c++/4.8.5/ext/new_allocator.h(81,7)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const)) /usr/include/c++/4.8.5/ext/new_allocator.h(79,7)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (__gnu_cxx::__exchange_and_add_dispatch(_Atomic_word *, int)) [17] /usr/include/c++/4.8.5/ext/atomicity.h(79,3)
+  -> INLINE (MANUAL): (81,9) __gthread_active_p()
+  -> INLINE (MANUAL): (82,14) __gnu_cxx::__exchange_and_add(volatile _Atomic_word *, int)
+    -> EXTERN: (49,12) __atomic_fetch_add_4(volatile void *, unsigned int, int)
+  -> INLINE (MANUAL): (84,14) __gnu_cxx::__exchange_and_add_single(_Atomic_word *, int)
+
+
+    Report from: Code generation optimizations [cg]
+
+/usr/include/c++/4.8.5/ext/atomicity.h(79,3):remark #34051: REGISTER ALLOCATION : [_ZN17_INTERNAL79890e3a9__gnu_cxx27__exchange_and_add_dispatchEPii] /usr/include/c++/4.8.5/ext/atomicity.h:79
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    4[ rax rdx rsi rdi]
+        
+    Routine temporaries
+        Total         :      16
+            Global    :       8
+            Local     :       8
+        Regenerable   :       2
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: std::allocator<char>::~allocator(std::allocator<char> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::allocator<char>::~allocator(std::allocator<char> *))/usr/include/c++/4.8.5/bits/allocator.h(121,28)
+
+===========================================================================
+
+Begin optimization report for: __gthread_active_p()
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gthread_active_p()) /usr/include/c++/4.8.5/x86_64-redhat-linux/bits/gthr-default.h(248,1)
+
+===========================================================================
+
+Begin optimization report for: Subbody::Subbody(Subbody *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Subbody::Subbody(Subbody *)) [20] ./class_Subbody.h(13,20)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at ./class_Subbody.h(15,5)
+   remark #15301: MATERIALIZED LOOP WAS VECTORIZED
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 4 
+   remark #15477: vector cost: 3.000 
+   remark #15478: estimated potential speedup: 1.140 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+./class_Subbody.h(13,20):remark #34051: REGISTER ALLOCATION : [_ZN7SubbodyC1Ev] ./class_Subbody.h:13
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    2[ rdi zmm0]
+        
+    Routine temporaries
+        Total         :       9
+            Global    :       0
+            Local     :       9
+        Regenerable   :       1
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: Subbody::Subbody(Subbody *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Subbody::Subbody(Subbody *const)) [21] ./class_Subbody.h(13,10)
+  -> INLINE: (13,10) Subbody::Subbody(Subbody *)
+
+
+    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
+
+
+LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./class_Subbody.h(14,10)
+   remark #15301: MATERIALIZED LOOP WAS VECTORIZED
+   remark #15451: unmasked unaligned unit stride stores: 1 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 4 
+   remark #15477: vector cost: 3.000 
+   remark #15478: estimated potential speedup: 1.140 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+    Report from: Code generation optimizations [cg]
+
+./class_Subbody.h(13,10):remark #34051: REGISTER ALLOCATION : [_ZN7SubbodyC2Ev] ./class_Subbody.h:13
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    2[ rdi zmm0]
+        
+    Routine temporaries
+        Total         :       9
+            Global    :       0
+            Local     :       9
+        Regenerable   :       1
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)) [22] ./class_Subbody.h(22,98)
+
+
+    Report from: Code generation optimizations [cg]
+
+./class_Subbody.h(22,98):remark #34051: REGISTER ALLOCATION : [_ZN7SubbodyC1Eddddddd] ./class_Subbody.h:22
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    8[ rdi zmm0-zmm6]
+        
+    Routine temporaries
+        Total         :      22
+            Global    :       0
+            Local     :      22
+        Regenerable   :       0
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: Subbody::Subbody(Subbody *const, double, double, double, double, double, double, double)
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (Subbody::Subbody(Subbody *const, double, double, double, double, double, double, double)) [23] ./class_Subbody.h(22,10)
+  -> INLINE: (22,10) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+
+
+    Report from: Code generation optimizations [cg]
+
+./class_Subbody.h(22,10):remark #34051: REGISTER ALLOCATION : [_ZN7SubbodyC2Eddddddd] ./class_Subbody.h:22
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    8[ rdi zmm0-zmm6]
+        
+    Routine temporaries
+        Total         :      22
+            Global    :       0
+            Local     :      22
+        Regenerable   :       0
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: std::allocator<char>::allocator(std::allocator<char> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::allocator<char>::allocator(std::allocator<char> *))/usr/include/c++/4.8.5/bits/allocator.h(113,27)
+
+===========================================================================
+
+Begin optimization report for: std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::allocator<char>::allocator(std::allocator<char> *, const std::allocator<char> &))/usr/include/c++/4.8.5/bits/allocator.h(116,36)
+
+===========================================================================
+
+Begin optimization report for: std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_data(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const)/usr/include/c++/4.8.5/bits/basic_string.h(293,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_M_rep(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const)/usr/include/c++/4.8.5/bits/basic_string.h(301,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_string<char, std::char_traits<char>, std::allocator<char>>::~basic_string(std::basic_string<char, std::char_traits<char>, std::allocator<char>> *))/usr/include/c++/4.8.5/bits/basic_string.h(539,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_string<char, std::char_traits<char>, std::allocator<char>>::c_str(const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const)/usr/include/c++/4.8.5/bits/basic_string.h(1801,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_string<char, std::char_traits<char>, std::allocator<char>>::get_allocator(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::allocator_type *, const std::basic_string<char, std::char_traits<char>, std::allocator<char>> *) const)/usr/include/c++/4.8.5/bits/basic_string.h(1818,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep()
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_S_empty_rep())/usr/include/c++/4.8.5/bits/basic_string.h(182,9)
+
+===========================================================================
+
+Begin optimization report for: std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep::_M_dispose(std::basic_string<char, std::char_traits<char>, std::allocator<char>>::_Rep *, const std::allocator<char> &))/usr/include/c++/4.8.5/bits/basic_string.h(238,2)
+
+===========================================================================
+
+Begin optimization report for: std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *))/usr/include/c++/4.8.5/streambuf(198,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_streambuf<char, std::char_traits<char>>::~basic_streambuf(std::basic_streambuf<char, std::char_traits<char>> *const))/usr/include/c++/4.8.5/streambuf(197,7)
+
+===========================================================================
+
+Begin optimization report for: std::ctype<char>::widen(const std::ctype<char> *, char) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::ctype<char>::widen(const std::ctype<char> *, char) const) /usr/include/c++/4.8.5/bits/locale_facets.h(866,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::rdstate(const std::basic_ios<char, std::char_traits<char>> *) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ios<char, std::char_traits<char>>::rdstate(const std::basic_ios<char, std::char_traits<char>> *) const)/usr/include/c++/4.8.5/bits/basic_ios.h(132,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *))/usr/include/c++/4.8.5/bits/basic_ios.h(276,20)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ios<char, std::char_traits<char>>::~basic_ios(std::basic_ios<char, std::char_traits<char>> *const))/usr/include/c++/4.8.5/bits/basic_ios.h(276,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::widen(const std::basic_ios<char, std::char_traits<char>> *, char) const
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ios<char, std::char_traits<char>>::widen(const std::basic_ios<char, std::char_traits<char>> *, char) const)/usr/include/c++/4.8.5/bits/basic_ios.h(444,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::basic_ios(std::basic_ios<char, std::char_traits<char>> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ios<char, std::char_traits<char>>::basic_ios(std::basic_ios<char, std::char_traits<char>> *))/usr/include/c++/4.8.5/bits/basic_ios.h(457,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ios<char, std::char_traits<char>>::basic_ios(std::basic_ios<char, std::char_traits<char>> *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ios<char, std::char_traits<char>>::basic_ios(std::basic_ios<char, std::char_traits<char>> *const))/usr/include/c++/4.8.5/bits/basic_ios.h(454,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>::~basic_ostream(std::basic_ostream<char, std::char_traits<char>> *, const long *const *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ostream<char, std::char_traits<char>>::~basic_ostream(std::basic_ostream<char, std::char_traits<char>> *, const long *const *))/usr/include/c++/4.8.5/ostream(93,24)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ostream<char, std::char_traits<char>>::basic_ostream(std::basic_ostream<char, std::char_traits<char>> *, const long *const *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ostream<char, std::char_traits<char>>::basic_ostream(std::basic_ostream<char, std::char_traits<char>> *, const long *const *))/usr/include/c++/4.8.5/ostream(385,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_filebuf<char, std::char_traits<char>>::~basic_filebuf(std::basic_filebuf<char, std::char_traits<char>> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_filebuf<char, std::char_traits<char>>::~basic_filebuf(std::basic_filebuf<char, std::char_traits<char>> *))/usr/include/c++/4.8.5/fstream(220,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ofstream<char, std::char_traits<char>>::basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *, const long *const *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ofstream<char, std::char_traits<char>>::basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *, const long *const *))/usr/include/c++/4.8.5/fstream(626,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ofstream<char, std::char_traits<char>>::basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ofstream<char, std::char_traits<char>>::basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const))/usr/include/c++/4.8.5/fstream(625,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *, const long *const *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *, const long *const *))/usr/include/c++/4.8.5/fstream(674,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const))/usr/include/c++/4.8.5/fstream(673,7)
+
+===========================================================================
+
+Begin optimization report for: std::basic_ofstream<char, std::char_traits<char>>::open(std::basic_ofstream<char, std::char_traits<char>> *, const char *, std::ios_base::openmode)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::basic_ofstream<char, std::char_traits<char>>::open(std::basic_ofstream<char, std::char_traits<char>> *, const char *, std::ios_base::openmode))/usr/include/c++/4.8.5/fstream(715,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Destroy_aux<true>::__destroy<std::_Vector_base<double, std::allocator<double>>::pointer>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Destroy_aux<true>::__destroy<std::_Vector_base<double, std::allocator<double>>::pointer>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer)) /usr/include/c++/4.8.5/bits/stl_construct.h(112,55)
+
+===========================================================================
+
+Begin optimization report for: std::allocator<double>::allocator(std::allocator<double> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::allocator<double>::allocator(std::allocator<double> *)) /usr/include/c++/4.8.5/bits/allocator.h(113,27)
+
+===========================================================================
+
+Begin optimization report for: std::allocator<double>::allocator(std::allocator<double> *, const std::allocator<double> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::allocator<double>::allocator(std::allocator<double> *, const std::allocator<double> &)) /usr/include/c++/4.8.5/bits/allocator.h(116,36)
+
+===========================================================================
+
+Begin optimization report for: std::allocator<double>::allocator(std::allocator<double> *const, const std::allocator<double> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::allocator<double>::allocator(std::allocator<double> *const, const std::allocator<double> &)) /usr/include/c++/4.8.5/bits/allocator.h(115,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator(std::_Vector_base<double, std::allocator<double>> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Vector_base<double, std::allocator<double>>::_M_get_Tp_allocator(std::_Vector_base<double, std::allocator<double>> *)) /usr/include/c++/4.8.5/bits/stl_vector.h(114,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)) /usr/include/c++/4.8.5/bits/stl_vector.h(136,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *const, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Vector_base<double, std::allocator<double>>::_Vector_base(std::_Vector_base<double, std::allocator<double>> *const, std::size_t, const std::_Vector_base<double, std::allocator<double>>::allocator_type &)) /usr/include/c++/4.8.5/bits/stl_vector.h(134,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Vector_base<double, std::allocator<double>>::~_Vector_base(std::_Vector_base<double, std::allocator<double>> *const)) /usr/include/c++/4.8.5/bits/stl_vector.h(159,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_allocate(std::_Vector_base<double, std::allocator<double>> *, std::size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Vector_base<double, std::allocator<double>>::_M_allocate(std::_Vector_base<double, std::allocator<double>> *, std::size_t)) /usr/include/c++/4.8.5/bits/stl_vector.h(168,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_deallocate(std::_Vector_base<double, std::allocator<double>> *, std::_Vector_base<double, std::allocator<double>>::pointer, std::size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Vector_base<double, std::allocator<double>>::_M_deallocate(std::_Vector_base<double, std::allocator<double>> *, std::_Vector_base<double, std::allocator<double>>::pointer, std::size_t)) /usr/include/c++/4.8.5/bits/stl_vector.h(172,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_M_create_storage(std::_Vector_base<double, std::allocator<double>> *, std::size_t)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Vector_base<double, std::allocator<double>>::_M_create_storage(std::_Vector_base<double, std::allocator<double>> *, std::size_t)) /usr/include/c++/4.8.5/bits/stl_vector.h(180,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Vector_base<double, std::allocator<double>>::_Vector_impl::_Vector_impl(std::_Vector_base<double, std::allocator<double>>::_Vector_impl *, const std::_Vector_base<double, std::allocator<double>>::_Tp_alloc_type &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Vector_base<double, std::allocator<double>>::_Vector_impl::_Vector_impl(std::_Vector_base<double, std::allocator<double>>::_Vector_impl *, const std::_Vector_base<double, std::allocator<double>>::_Tp_alloc_type &)) /usr/include/c++/4.8.5/bits/stl_vector.h(92,2)
+
+===========================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::vector(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type, const std::vector<double, std::allocator<double>>::allocator_type &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::vector<double, std::allocator<double>>::vector(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type, const std::vector<double, std::allocator<double>>::allocator_type &)) /usr/include/c++/4.8.5/bits/stl_vector.h(271,7)
+
+===========================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::vector<double, std::allocator<double>>::operator[](std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)) /usr/include/c++/4.8.5/bits/stl_vector.h(771,7)
+
+===========================================================================
+
+Begin optimization report for: std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::_S_base(std::_Vector_base<double, std::allocator<double>>::pointer)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::_S_base(std::_Vector_base<double, std::allocator<double>>::pointer)) /usr/include/c++/4.8.5/bits/stl_iterator_base_types.h(213,7)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *)) /usr/include/c++/4.8.5/ext/new_allocator.h(79,45)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *, const __gnu_cxx::new_allocator<char> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *, const __gnu_cxx::new_allocator<char> &)) /usr/include/c++/4.8.5/ext/new_allocator.h(81,65)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *)) /usr/include/c++/4.8.5/ext/new_allocator.h(79,45)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *, const __gnu_cxx::new_allocator<double> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<double>::new_allocator(__gnu_cxx::new_allocator<double> *, const __gnu_cxx::new_allocator<double> &)) /usr/include/c++/4.8.5/ext/new_allocator.h(81,65)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<double>::allocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::size_type, const void *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<double>::allocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::size_type, const void *)) /usr/include/c++/4.8.5/ext/new_allocator.h(100,7)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::new_allocator<double>::deallocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::pointer, __gnu_cxx::new_allocator<double>::size_type)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::new_allocator<double>::deallocate(__gnu_cxx::new_allocator<double> *, __gnu_cxx::new_allocator<double>::pointer, __gnu_cxx::new_allocator<double>::size_type)) /usr/include/c++/4.8.5/ext/new_allocator.h(110,7)
+
+===========================================================================
+
+Begin optimization report for: std::stoi(const std::string &, std::size_t *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::stoi(const std::string &, std::size_t *, int)) /usr/include/c++/4.8.5/bits/basic_string.h(2824,3)
+
+===========================================================================
+
+Begin optimization report for: std::stod(const std::string &, std::size_t *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::stod(const std::string &, std::size_t *)) /usr/include/c++/4.8.5/bits/basic_string.h(2854,3)
+
+===========================================================================
+
+Begin optimization report for: std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::operator|(std::_Ios_Openmode, std::_Ios_Openmode)) /usr/include/c++/4.8.5/bits/ios_base.h(120,3)
+
+===========================================================================
+
+Begin optimization report for: std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::operator|(std::_Ios_Iostate, std::_Ios_Iostate)) /usr/include/c++/4.8.5/bits/ios_base.h(158,3)
+
+===========================================================================
+
+Begin optimization report for: std::endl<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::endl<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &))/usr/include/c++/4.8.5/ostream(565,5)
+
+===========================================================================
+
+Begin optimization report for: std::flush<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+NEVER EMIT DEFINITION FUNCTION: (std::flush<char, std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &))/usr/include/c++/4.8.5/ostream(587,5)
+
+===========================================================================
+
+Begin optimization report for: std::__check_facet<std::basic_ios<char, std::char_traits<char>>::__ctype_type>(const std::basic_ios<char, std::char_traits<char>>::__ctype_type *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::__check_facet<std::basic_ios<char, std::char_traits<char>>::__ctype_type>(const std::basic_ios<char, std::char_traits<char>>::__ctype_type *)) /usr/include/c++/4.8.5/bits/basic_ios.h(47,5)
+
+===========================================================================
+
+Begin optimization report for: std::fill_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::fill_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)) /usr/include/c++/4.8.5/bits/stl_algobase.h(782,5)
+
+===========================================================================
+
+Begin optimization report for: std::__niter_base<std::_Vector_base<double, std::allocator<double>>::pointer>(std::_Vector_base<double, std::allocator<double>>::pointer)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::__niter_base<std::_Vector_base<double, std::allocator<double>>::pointer>(std::_Vector_base<double, std::allocator<double>>::pointer)) /usr/include/c++/4.8.5/bits/stl_algobase.h(278,5)
+
+===========================================================================
+
+Begin optimization report for: std::__fill_n_a<std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::__fill_n_a<std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type>(std::_Iter_base<std::_Vector_base<double, std::allocator<double>>::pointer, false>::iterator_type, std::vector<double, std::allocator<double>>::size_type, const std::iterator_traits<std::_Vector_base<double, std::allocator<double>>::pointer>::value_type &)) /usr/include/c++/4.8.5/bits/stl_algobase.h(747,5)
+
+===========================================================================
+
+Begin optimization report for: std::_Destroy<std::_Vector_base<double, std::allocator<double>>::pointer>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::_Destroy<std::_Vector_base<double, std::allocator<double>>::pointer>(std::_Vector_base<double, std::allocator<double>>::pointer, std::_Vector_base<double, std::allocator<double>>::pointer)) /usr/include/c++/4.8.5/bits/stl_construct.h(123,5)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::__exchange_and_add(volatile _Atomic_word *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::__exchange_and_add(volatile _Atomic_word *, int)) /usr/include/c++/4.8.5/ext/atomicity.h(49,3)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::__exchange_and_add_single(_Atomic_word *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::__exchange_and_add_single(_Atomic_word *, int)) /usr/include/c++/4.8.5/ext/atomicity.h(66,3)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::__stoa<long, int, char, int>(long (*)(const char *, char **, int), const char *, const char *, std::size_t *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::__stoa<long, int, char, int>(long (*)(const char *, char **, int), const char *, const char *, std::size_t *, int)) /usr/include/c++/4.8.5/ext/string_conversions.h(57,5)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::__stoa<double, double, char>(double (*)(const char *, char **), const char *, const char *, std::size_t *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::__stoa<double, double, char>(double (*)(const char *, char **), const char *, const char *, std::size_t *)) /usr/include/c++/4.8.5/ext/string_conversions.h(57,5)
+
+===========================================================================
+
+Begin optimization report for: __sti__$E()
+
+    Report from: Interprocedural optimizations [ipo]
+
+INLINE REPORT: (__sti__$E()) [86] <compiler generated>
+  -> EXTERN: /usr/include/c++/4.8.5/iostream:(74,25) __cxa_atexit(void (*)(void *), void *, void *)
+  -> EXTERN: /usr/include/c++/4.8.5/iostream:(74,25) std::ios_base::Init::Init(std::ios_base::Init *)
+
+
+    Report from: Code generation optimizations [cg]
+
+<compiler generated>:remark #34051: REGISTER ALLOCATION : [__sti__$E] (null):0
+
+    Hardware registers
+        Reserved     :    2[ rsp rip]
+        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
+        Callee-save  :    6[ rbx rbp r12-r15]
+        Assigned     :    3[ rdx rsi rdi]
+        
+    Routine temporaries
+        Total         :      13
+            Global    :       7
+            Local     :       6
+        Regenerable   :       7
+        Spilled       :       0
+        
+    Routine stack
+        Variables     :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+        Spills        :       0 bytes*
+            Reads     :       0 [0.00e+00 ~ 0.0%]
+            Writes    :       0 [0.00e+00 ~ 0.0%]
+    
+    Notes
+    
+        *Non-overlapping variables and spills may share stack space,
+         so the total stack size might be less than this.
+    
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::__stoa<long, int, char, int>..0(long (*)(const char *, char **, int), const char *, const char *, std::size_t *, int)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::__stoa<long, int, char, int>..0(long (*)(const char *, char **, int), const char *, const char *, std::size_t *, int)) /usr/include/c++/4.8.5/ext/string_conversions.h(57,5)
+  CLONED FROM: __gnu_cxx::__stoa<long, int, char, int>(long (*)(const char *, char **, int), const char *, const char *, std::size_t *, int)(raddr(strtol)(P64),X,X,X,X)
+
+===========================================================================
+
+Begin optimization report for: __gnu_cxx::__stoa<double, double, char>..0(double (*)(const char *, char **), const char *, const char *, std::size_t *)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (__gnu_cxx::__stoa<double, double, char>..0(double (*)(const char *, char **), const char *, const char *, std::size_t *)) /usr/include/c++/4.8.5/ext/string_conversions.h(57,5)
+  CLONED FROM: __gnu_cxx::__stoa<double, double, char>(double (*)(const char *, char **), const char *, const char *, std::size_t *)(raddr(strtod)(P64),X,X,X)
+
+===========================================================================
+
+Begin optimization report for: std::__uninitialized_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::__uninitialized_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)) /usr/include/c++/4.8.5/bits/stl_uninitialized.h(539,5)
+
+===========================================================================
+
+Begin optimization report for: std::__uninitialized_default_n_a<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::allocator<double> &)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::__uninitialized_default_n_a<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, double>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type, std::allocator<double> &)) /usr/include/c++/4.8.5/bits/stl_uninitialized.h(605,5)
+
+===========================================================================
+
+Begin optimization report for: std::vector<double, std::allocator<double>>::_M_default_initialize(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::vector<double, std::allocator<double>>::_M_default_initialize(std::vector<double, std::allocator<double>> *, std::vector<double, std::allocator<double>>::size_type)) /usr/include/c++/4.8.5/bits/stl_vector.h(1223,7)
+
+===========================================================================
+
+Begin optimization report for: std::__uninitialized_default_n_1<true>::__uninit_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)
+
+    Report from: Interprocedural optimizations [ipo]
+
+DEAD STATIC FUNCTION: (std::__uninitialized_default_n_1<true>::__uninit_default_n<std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type>(std::_Vector_base<double, std::allocator<double>>::pointer, std::vector<double, std::allocator<double>>::size_type)) /usr/include/c++/4.8.5/bits/stl_uninitialized.h(511,9)
+
+===========================================================================
