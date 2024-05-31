@@ -3,7 +3,6 @@
 #include<fstream>
 #include "class_Subbody.h"
 #include<random>
-#include <omp.h>
 #include <string>
 #include <cmath>
 //#include "simulatuon_struct_mas.h"
@@ -20,9 +19,7 @@ int main(int argc, char* argv[]) {
 	if (mode == 1) {
 
 		Subbody* orbital_entities = new Subbody[9];
-		//Subbody* orbital_entities = new Subbody[sizeof(Subbody) * (2 + N_ASTEROIDS)];
-		//orbital_entities[0] = { 0.0,0.0,0.0, 0.0,0.0,0.0, 100000 };
-		//orbital_entities[1] = { 0.001,0.0,0.0,  0.0,0.08,0.0,  1.0 };
+		
 		orbital_entities[0] = { 0.0,0.0,0.0,        0.0,0.0,0.0,      1.989e30 };   // a star similar to the sun
 		orbital_entities[1] = { 57.909e9,0.0,0.0,   0.0,47.36e3,0.0,  0.33011e24 }; // a planet similar to mercury
 		orbital_entities[2] = { 108.209e9,0.0,0.0,  0.0,35.02e3,0.0,  4.8675e24 };  // a planet similar to venus
@@ -38,6 +35,20 @@ int main(int argc, char* argv[]) {
 		delete[] orbital_entities;
 		orbital_entities = nullptr;
 	}
+else if(mode==3){
+	    Subbody* orbital_entities = new Subbody[5];
+	   orbital_entities[0] = { 0.0,0.0,0.0, 0.0,0.0,0.0, 100000 };
+	   orbital_entities[1] = { 0.001,0.0,0.0,  0.0,0.08,0.0,  1.0 };
+           orbital_entities[2]=  {0.0,0.001,0.0,  -0.08,0.0,0.0,  1.0 };
+           orbital_entities[3]=  {0.0,-0.001,0.0,  0.08,0.0,0.0,  1.0 };
+           orbital_entities[4] = { -0.001,0.0,0.0,  0.0,-0.08,0.0,  1.0 };
+	   simulation_mas_struct(orbital_entities, 5, t_0, t_end, BIG_G, dt);
+		std::cout << "x:" << orbital_entities[1].x << "  " << "y:" << orbital_entities[1].y << "  " << "z:" << orbital_entities[1].z << "  " << std::endl;
+
+		delete[] orbital_entities;
+		orbital_entities = nullptr;
+}
+
 	else {
 		Subbody* orbital_entities = new Subbody[n];
 		std::ofstream file1;

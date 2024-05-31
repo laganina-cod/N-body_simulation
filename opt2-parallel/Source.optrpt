@@ -194,22 +194,17 @@ INLINE REPORT: (main(int, char **)) [1] ./Source.cpp(11,34)
   -> INLINE (MANUAL): (15,23) std::allocator<char>::allocator(std::allocator<char> *)
     -> DELETED: /usr/include/c++/4.8.5/bits/allocator.h:(113,7) __gnu_cxx::new_allocator<char>::new_allocator(__gnu_cxx::new_allocator<char> *const)
     -> EXTERN: /usr/include/c++/4.8.5/bits/allocator.h:(113,27) __cxa_call_unexpected
-  -> EXTERN: (21,12) __cxa_end_catch
-  -> EXTERN: (21,12) __cxa_rethrow
-  -> EXTERN: (21,12) operator delete[](void *)
-  -> EXTERN: (21,12) __cxa_get_globals_fast
-  -> EXTERN: (21,12) __cxa_begin_catch
-  -> INLINE: (21,12) Subbody::Subbody(Subbody *)
+  -> INLINE (MANUAL): (21,12) Subbody::Subbody(Subbody *)
   -> EXTERN: (21,12) operator new[](std::size_t)
-  -> INLINE: (23,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (24,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (25,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (26,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (27,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (28,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (29,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (30,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (31,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (23,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (24,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (25,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (26,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (27,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (28,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (29,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (30,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (31,65) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
   -> (32,3) simulation_mas_struct(Subbody *, size_t, double, double, double, double)
   -> (33,13) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
   -> (33,21) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double)
@@ -222,18 +217,13 @@ INLINE REPORT: (main(int, char **)) [1] ./Source.cpp(11,34)
   -> (33,128) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
   -> (33,136) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
   -> EXTERN: (35,3) operator delete[](void *)
-  -> EXTERN: (39,15) __cxa_end_catch
-  -> EXTERN: (39,15) __cxa_rethrow
-  -> EXTERN: (39,15) operator delete[](void *)
-  -> EXTERN: (39,15) __cxa_get_globals_fast
-  -> EXTERN: (39,15) __cxa_begin_catch
-  -> INLINE: (39,15) Subbody::Subbody(Subbody *)
+  -> INLINE (MANUAL): (39,15) Subbody::Subbody(Subbody *)
   -> EXTERN: (39,15) operator new[](std::size_t)
-  -> INLINE: (40,55) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (41,60) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (42,67) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (43,67) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-  -> INLINE: (44,69) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (40,55) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (41,60) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (42,67) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (43,67) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (44,69) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
   -> (45,5) simulation_mas_struct(Subbody *, size_t, double, double, double, double)
   -> (46,13) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
   -> (46,21) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, double)
@@ -246,12 +236,7 @@ INLINE REPORT: (main(int, char **)) [1] ./Source.cpp(11,34)
   -> (46,128) std::operator<<<std::char_traits<char>>(std::basic_ostream<char, std::char_traits<char>> &, const char *)
   -> (46,136) std::basic_ostream<char, std::char_traits<char>>::operator<<(std::basic_ostream<char, std::char_traits<char>> *, std::basic_ostream<char, std::char_traits<char>>::__ostream_type &(*)(std::basic_ostream<char, std::char_traits<char>>::__ostream_type &))
   -> EXTERN: (48,3) operator delete[](void *)
-  -> EXTERN: (53,43) __cxa_end_catch
-  -> EXTERN: (53,43) __cxa_rethrow
-  -> EXTERN: (53,43) operator delete[](void *)
-  -> EXTERN: (53,43) __cxa_get_globals_fast
-  -> EXTERN: (53,43) __cxa_begin_catch
-  -> INLINE: (53,43) Subbody::Subbody(Subbody *)
+  -> INLINE (MANUAL): (53,43) Subbody::Subbody(Subbody *)
   -> EXTERN: (53,43) operator new[](std::size_t)
   -> INLINE (MANUAL): (54,17) std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *const)
     -> INLINE (MANUAL): /usr/include/c++/4.8.5/fstream:(673,7) std::basic_ofstream<char, std::char_traits<char>>::~basic_ofstream(std::basic_ofstream<char, std::char_traits<char>> *, const long *const *)
@@ -326,7 +311,7 @@ INLINE REPORT: (main(int, char **)) [1] ./Source.cpp(11,34)
   -> EXTERN: (58,106) rand()
   -> EXTERN: (58,122) rand()
   -> EXTERN: (58,138) rand()
-  -> INLINE: (58,138) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
+  -> INLINE (MANUAL): (58,138) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
   -> EXTERN: (60,15) omp_get_wtime()
   -> (61,3) simulation_mas_struct(Subbody *, size_t, double, double, double, double)
   -> EXTERN: (62,15) omp_get_wtime()
@@ -371,7 +356,7 @@ LOOP BEGIN at ./Source.cpp(21,12)
    remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
    remark #25436: completely unrolled by 9  
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(21,12)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(21,12)
       remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
       remark #15451: unmasked unaligned unit stride stores: 1 
       remark #15475: --- begin vector cost summary ---
@@ -382,28 +367,28 @@ LOOP BEGIN at ./Source.cpp(21,12)
       remark #25436: completely unrolled by 6  
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(21,12)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(21,12)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(21,12)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(21,12)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(21,12)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(21,12)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(21,12)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(21,12)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(21,12)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(21,12)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(21,12)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(21,12)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(21,12)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(21,12)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(21,12)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(21,12)
    LOOP END
 LOOP END
 
@@ -413,7 +398,7 @@ LOOP BEGIN at ./Source.cpp(39,15)
    remark #15541: outer loop was not auto-vectorized: consider using SIMD directive
    remark #25436: completely unrolled by 5  
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(39,15)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(39,15)
       remark #15335: loop was not vectorized: vectorization possible but seems inefficient. Use vector always directive or -vec-threshold0 to override 
       remark #15451: unmasked unaligned unit stride stores: 1 
       remark #15475: --- begin vector cost summary ---
@@ -424,16 +409,16 @@ LOOP BEGIN at ./Source.cpp(39,15)
       remark #25436: completely unrolled by 6  
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(39,15)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(39,15)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(39,15)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(39,15)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(39,15)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(39,15)
    LOOP END
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(39,15)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(39,15)
    LOOP END
 LOOP END
 
@@ -442,7 +427,7 @@ LOOP BEGIN at ./Source.cpp(53,43)
    remark #25452: Original Order found to be proper, but by a close margin
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./Source.cpp(53,43)
+   LOOP BEGIN at ./class_Subbody.h(13,5) inlined into ./Source.cpp(53,43)
       remark #15301: MATERIALIZED LOOP WAS VECTORIZED
       remark #15451: unmasked unaligned unit stride stores: 1 
       remark #15475: --- begin vector cost summary ---
@@ -481,11 +466,11 @@ LOOP END
         
     Routine stack
         Variables     :     589 bytes*
-            Reads     :      40 [3.13e+00 ~ 3.1%]
-            Writes    :      55 [1.14e+00 ~ 1.1%]
+            Reads     :      40 [3.21e+00 ~ 3.2%]
+            Writes    :      55 [1.17e+00 ~ 1.2%]
         Spills        :      88 bytes*
-            Reads     :      16 [3.34e+00 ~ 3.3%]
-            Writes    :      11 [2.86e+00 ~ 2.9%]
+            Reads     :      16 [3.23e+00 ~ 3.2%]
+            Writes    :      11 [2.78e+00 ~ 2.8%]
     
     Notes
     
@@ -1143,106 +1128,7 @@ Begin optimization report for: Subbody::Subbody(Subbody *)
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (Subbody::Subbody(Subbody *)) [20] ./class_Subbody.h(13,20)
-
-
-    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
-
-
-LOOP BEGIN at ./class_Subbody.h(15,5)
-   remark #15301: MATERIALIZED LOOP WAS VECTORIZED
-   remark #15451: unmasked unaligned unit stride stores: 1 
-   remark #15475: --- begin vector cost summary ---
-   remark #15476: scalar cost: 4 
-   remark #15477: vector cost: 3.000 
-   remark #15478: estimated potential speedup: 1.140 
-   remark #15488: --- end vector cost summary ---
-LOOP END
-
-    Report from: Code generation optimizations [cg]
-
-./class_Subbody.h(13,20):remark #34051: REGISTER ALLOCATION : [_ZN7SubbodyC1Ev] ./class_Subbody.h:13
-
-    Hardware registers
-        Reserved     :    2[ rsp rip]
-        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
-        Callee-save  :    6[ rbx rbp r12-r15]
-        Assigned     :    2[ rdi zmm0]
-        
-    Routine temporaries
-        Total         :       9
-            Global    :       0
-            Local     :       9
-        Regenerable   :       1
-        Spilled       :       0
-        
-    Routine stack
-        Variables     :       0 bytes*
-            Reads     :       0 [0.00e+00 ~ 0.0%]
-            Writes    :       0 [0.00e+00 ~ 0.0%]
-        Spills        :       0 bytes*
-            Reads     :       0 [0.00e+00 ~ 0.0%]
-            Writes    :       0 [0.00e+00 ~ 0.0%]
-    
-    Notes
-    
-        *Non-overlapping variables and spills may share stack space,
-         so the total stack size might be less than this.
-    
-
-===========================================================================
-
-Begin optimization report for: Subbody::Subbody(Subbody *const)
-
-    Report from: Interprocedural optimizations [ipo]
-
-INLINE REPORT: (Subbody::Subbody(Subbody *const)) [21] ./class_Subbody.h(13,10)
-  -> INLINE: (13,10) Subbody::Subbody(Subbody *)
-
-
-    Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
-
-
-LOOP BEGIN at ./class_Subbody.h(15,5) inlined into ./class_Subbody.h(14,10)
-   remark #15301: MATERIALIZED LOOP WAS VECTORIZED
-   remark #15451: unmasked unaligned unit stride stores: 1 
-   remark #15475: --- begin vector cost summary ---
-   remark #15476: scalar cost: 4 
-   remark #15477: vector cost: 3.000 
-   remark #15478: estimated potential speedup: 1.140 
-   remark #15488: --- end vector cost summary ---
-LOOP END
-
-    Report from: Code generation optimizations [cg]
-
-./class_Subbody.h(13,10):remark #34051: REGISTER ALLOCATION : [_ZN7SubbodyC2Ev] ./class_Subbody.h:13
-
-    Hardware registers
-        Reserved     :    2[ rsp rip]
-        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
-        Callee-save  :    6[ rbx rbp r12-r15]
-        Assigned     :    2[ rdi zmm0]
-        
-    Routine temporaries
-        Total         :       9
-            Global    :       0
-            Local     :       9
-        Regenerable   :       1
-        Spilled       :       0
-        
-    Routine stack
-        Variables     :       0 bytes*
-            Reads     :       0 [0.00e+00 ~ 0.0%]
-            Writes    :       0 [0.00e+00 ~ 0.0%]
-        Spills        :       0 bytes*
-            Reads     :       0 [0.00e+00 ~ 0.0%]
-            Writes    :       0 [0.00e+00 ~ 0.0%]
-    
-    Notes
-    
-        *Non-overlapping variables and spills may share stack space,
-         so the total stack size might be less than this.
-    
+DEAD STATIC FUNCTION: (Subbody::Subbody(Subbody *)) ./class_Subbody.h(11,27)
 
 ===========================================================================
 
@@ -1250,80 +1136,7 @@ Begin optimization report for: Subbody::Subbody(Subbody *, double, double, doubl
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)) [22] ./class_Subbody.h(22,98)
-
-
-    Report from: Code generation optimizations [cg]
-
-./class_Subbody.h(22,98):remark #34051: REGISTER ALLOCATION : [_ZN7SubbodyC1Eddddddd] ./class_Subbody.h:22
-
-    Hardware registers
-        Reserved     :    2[ rsp rip]
-        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
-        Callee-save  :    6[ rbx rbp r12-r15]
-        Assigned     :    8[ rdi zmm0-zmm6]
-        
-    Routine temporaries
-        Total         :      22
-            Global    :       0
-            Local     :      22
-        Regenerable   :       0
-        Spilled       :       0
-        
-    Routine stack
-        Variables     :       0 bytes*
-            Reads     :       0 [0.00e+00 ~ 0.0%]
-            Writes    :       0 [0.00e+00 ~ 0.0%]
-        Spills        :       0 bytes*
-            Reads     :       0 [0.00e+00 ~ 0.0%]
-            Writes    :       0 [0.00e+00 ~ 0.0%]
-    
-    Notes
-    
-        *Non-overlapping variables and spills may share stack space,
-         so the total stack size might be less than this.
-    
-
-===========================================================================
-
-Begin optimization report for: Subbody::Subbody(Subbody *const, double, double, double, double, double, double, double)
-
-    Report from: Interprocedural optimizations [ipo]
-
-INLINE REPORT: (Subbody::Subbody(Subbody *const, double, double, double, double, double, double, double)) [23] ./class_Subbody.h(22,10)
-  -> INLINE: (22,10) Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)
-
-
-    Report from: Code generation optimizations [cg]
-
-./class_Subbody.h(22,10):remark #34051: REGISTER ALLOCATION : [_ZN7SubbodyC2Eddddddd] ./class_Subbody.h:22
-
-    Hardware registers
-        Reserved     :    2[ rsp rip]
-        Available    :   39[ rax rdx rcx rbx rbp rsi rdi r8-r15 mm0-mm7 zmm0-zmm15]
-        Callee-save  :    6[ rbx rbp r12-r15]
-        Assigned     :    8[ rdi zmm0-zmm6]
-        
-    Routine temporaries
-        Total         :      22
-            Global    :       0
-            Local     :      22
-        Regenerable   :       0
-        Spilled       :       0
-        
-    Routine stack
-        Variables     :       0 bytes*
-            Reads     :       0 [0.00e+00 ~ 0.0%]
-            Writes    :       0 [0.00e+00 ~ 0.0%]
-        Spills        :       0 bytes*
-            Reads     :       0 [0.00e+00 ~ 0.0%]
-            Writes    :       0 [0.00e+00 ~ 0.0%]
-    
-    Notes
-    
-        *Non-overlapping variables and spills may share stack space,
-         so the total stack size might be less than this.
-    
+DEAD STATIC FUNCTION: (Subbody::Subbody(Subbody *, double, double, double, double, double, double, double)) ./class_Subbody.h(20,105)
 
 ===========================================================================
 
@@ -1827,7 +1640,7 @@ Begin optimization report for: __sti__$E()
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (__sti__$E()) [86] <compiler generated>
+INLINE REPORT: (__sti__$E()) [84] <compiler generated>
   -> EXTERN: /usr/include/c++/4.8.5/iostream:(74,25) __cxa_atexit(void (*)(void *), void *, void *)
   -> EXTERN: /usr/include/c++/4.8.5/iostream:(74,25) std::ios_base::Init::Init(std::ios_base::Init *)
 
